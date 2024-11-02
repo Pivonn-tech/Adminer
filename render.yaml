@@ -1,8 +1,9 @@
-echo "version: 1
+version: 1
 services:
   - type: web
     name: adminer
-    env: php
+    env: docker
+    docker:
+      buildCommand: ""  # No build command needed, Dockerfile will handle it
+      dockerfilePath: Dockerfile
     plan: free
-    buildCommand: 'echo no build command'
-    startCommand: 'php -S 0.0.0.0:10000 adminer.php'" > render.yaml
