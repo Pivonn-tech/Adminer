@@ -1,0 +1,8 @@
+echo "version: 1
+services:
+  - type: web
+    name: adminer
+    env: php
+    plan: free
+    buildCommand: 'echo no build command'
+    startCommand: 'php -S 0.0.0.0:10000 adminer.php'" > render.yaml
