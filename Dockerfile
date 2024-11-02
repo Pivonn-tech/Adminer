@@ -14,6 +14,9 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 # Copy the Adminer PHP file to the appropriate directory
 COPY adminer.php /var/www/html/adminer.php
 
+# Set permissions for the adminer.php file
+RUN chmod 644 /var/www/html/adminer.php
+
 # Expose the port
 EXPOSE 80
 
