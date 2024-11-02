@@ -17,6 +17,9 @@ COPY adminer.php /var/www/html/adminer.php
 # Set permissions for the adminer.php file
 RUN chmod 644 /var/www/html/adminer.php
 
+# Set DirectoryIndex to adminer.php
+RUN echo "DirectoryIndex adminer.php" >> /etc/apache2/apache2.conf
+
 # Expose the port
 EXPOSE 80
 
