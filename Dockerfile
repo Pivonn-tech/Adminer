@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Set the ServerName to suppress warnings
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Copy the Adminer PHP file to the appropriate directory
 COPY adminer.php /var/www/html/adminer.php
 
