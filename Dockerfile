@@ -1,14 +1,14 @@
-# Use the official PHP image
-FROM php:8.1-cli
+# Use the official PHP image with Apache
+FROM php:8.0-apache
 
-# Set the working directory
-WORKDIR /app
+# Install PostgreSQL extensions
+RUN docker-php-ext-install pdo pdo_pgsql
 
-# Copy the adminer.php file into the container
-COPY adminer.php .
+# Copy the Adminer PHP file to the appropriate directory
+COPY adminer.php /var/www/html/adminer.php
 
 # Expose the port
-EXPOSE 10000
+EXPOSE 80
 
-# Start the PHP built-in server
-CMD ["php", "-S", "0.0.0.0:10000", "adminer.php"]
+# Start the Apache server
+CMD ["apache2-foreground"]
